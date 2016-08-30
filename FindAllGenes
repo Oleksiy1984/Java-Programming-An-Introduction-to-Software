@@ -1,4 +1,9 @@
+// Find all genes in a DNA string.
+
 import edu.duke.*;
+
+public class FindAllGenes 
+{
 /**
 * Find a valid stop codon in dna that occurs after index.
 * If no valid stop codon found, return dna.length().
@@ -7,9 +12,6 @@ import edu.duke.*;
 * @return index of beginning of a valid stop codon,
 * or dna.length() if no valid codon.
 */
-public class FindAllGenes 
-{
-
     public static int findStopIndex (String dna,int index) {
 
         int stop1=dna.indexOf("tga",index);
@@ -27,7 +29,12 @@ public class FindAllGenes
         }
         return Math.min(stop1,Math.min(stop2,stop3));
     }
-
+    
+/**
+* This method print all the genes it finds in DNA.
+* This method should repeatedly look for a gene, and if it finds one,
+* print it and then look for another gene. 
+*/
 public static void printAll(String dna){
     String dnaIsLow=dna.toLowerCase();
     int start=0;
@@ -46,7 +53,5 @@ public static void printAll(String dna){
 }
 
     public static void main( String[] args )
-    {
-    printAll("CATGTAATAGATGAATGACTGATAGATATGCTTGTATGCTATGAAAATGTGAAATGACCCA");
-    }
+    {printAll("CATGTAATAGATGAATGACTGATAGATATGCTTGTATGCTATGAAAATGTGAAATGACCCA");}
 }
