@@ -1,6 +1,4 @@
 // Find all genes in a DNA string.
-```java
-require 'redcarpet'
 import edu.duke.*;
 
 public class FindAllGenes 
