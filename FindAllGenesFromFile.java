@@ -52,6 +52,11 @@ public static StorageResource storeAll(String dna){
     return genes;
 }
 
+/**
+ * This method reads the file, which is a large string
+ * of DNA and calls storeAll to find and store all the genes in this large
+ * strand of DNA. It then prints the number of genes found.
+ * /
     public static void testStorageFinder() {
         FileResource dnaFile = new FileResource();
         String source = dnaFile.asString();
@@ -59,6 +64,10 @@ public static StorageResource storeAll(String dna){
         System.out.println( "Number of genes found: "+genesFound.size() );
         printGenes( genesFound );
     }
+    
+    /**
+     * This method returns the ratio of C’s and G’s in dna as a fraction of the entire strand of DNA/
+     * /
     public static float cgRatio( String dna ) {
         String dnaLow = dna.toLowerCase();
         int cgCount = 0;
@@ -87,7 +96,12 @@ public static StorageResource storeAll(String dna){
         return ( (float) cgCount ) / dna.length();
 
     }
-
+/**
+ * prints all the Strings that are longer than 60 characters
+ * prints the number of Strings that are longer than 60 characters
+ * prints the Strings whose C-G-ratio is higher than 0.35
+ * prints the number of strings whose C-G-ratio is higher than 0.35
+ */
     public static void printGenes( StorageResource sr ) {
 
         int sixtyCharQty = 0;
@@ -109,7 +123,7 @@ public static StorageResource storeAll(String dna){
 
         }
 
-        System.out.println( "60 characters qty: "+sixtyCharQty );
+        System.out.println( "the number of Strings that are longer than 60 characters: "+sixtyCharQty );
         System.out.println( "Strings with C-G-ratio higher than 0.35: "+highCgRatioQty );
 
     }
