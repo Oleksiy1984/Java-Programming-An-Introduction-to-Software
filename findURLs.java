@@ -1,3 +1,12 @@
+/**
+ * find all the URLs on a web page and to
+ * print the URLs,
+ * print the number of URLs found,
+ * print the the number of secure links found,
+ * print the number of links that have “.com” in them,
+ * print the number of links that end with “.com” or “.com/” and
+ * print the total number of “.” that appear in all the links.
+ * */
 public class findURLs 
 {
 
