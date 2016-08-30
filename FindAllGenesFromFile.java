@@ -36,7 +36,9 @@ public static StorageResource storeAll(String dna){
     int start=0;
     String dnaIsLow=dna.toLowerCase();
         while(true){
+            // get start position of a codon
         int startATG =dnaIsLow.indexOf("atg", start);
+          //find end position of a codon
         int endTAG=findStopIndex(dnaIsLow,startATG+3);
         if(startATG==-1){
             break;
@@ -61,6 +63,7 @@ public static StorageResource storeAll(String dna){
         FileResource dnaFile = new FileResource();
         String source = dnaFile.asString();
         StorageResource genesFound = storeAll(source);
+        countCTGCodon(source);
         System.out.println( "Number of genes found: "+genesFound.size() );
         printGenes( genesFound );
     }
@@ -125,7 +128,44 @@ public static StorageResource storeAll(String dna){
 
         System.out.println( "the number of Strings that are longer than 60 characters: "+sixtyCharQty );
         System.out.println( "Strings with C-G-ratio higher than 0.35: "+highCgRatioQty );
+        System.out.println("The Longest gene is: " + getLongestGene(sr).length());
 
+    }
+
+    /**
+     * Count the codon CTG in a strand of DNA
+     *
+     * @param dna is a strand of DNA
+     * @return count of CTG
+     */
+    public static int countCTGCodon(String dna) {
+        dna = dna.toLowerCase();
+        int count = dna.length() - dna.replace("ctg", "").length();
+        System.out.println("CTG Count: " + count / 3);
+        return count;
+    }
+
+    /**
+     * Find the longest gene in a collection of genes
+     */
+    public static String getLongestGene(StorageResource sr) {
+
+        int maxLength = 0;
+        String longestGene = "";
+
+        for (String gene : sr.data()) {
+
+            int len = gene.length();
+
+            if (len > maxLength) {
+                maxLength = len;
+                longestGene = gene;
+            }
+
+        }
+
+
+        return longestGene;
     }
 
   public static void main( String[] args )
