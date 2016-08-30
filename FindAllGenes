@@ -1,5 +1,12 @@
 import edu.duke.*;
-
+/**
+* Find a valid stop codon in dna that occurs after index.
+* If no valid stop codon found, return dna.length().
+* @param dna is String being searched.
+* @param index is index where search starts.
+* @return index of beginning of a valid stop codon,
+* or dna.length() if no valid codon.
+*/
 public class FindAllGenes 
 {
 
