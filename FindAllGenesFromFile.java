@@ -56,7 +56,7 @@ public static StorageResource storeAll(String dna){
  * This method reads the file, which is a large string
  * of DNA and calls storeAll to find and store all the genes in this large
  * strand of DNA. It then prints the number of genes found.
- * /
+ */
     public static void testStorageFinder() {
         FileResource dnaFile = new FileResource();
         String source = dnaFile.asString();
@@ -67,7 +67,7 @@ public static StorageResource storeAll(String dna){
     
     /**
      * This method returns the ratio of C’s and G’s in dna as a fraction of the entire strand of DNA/
-     * /
+     */
     public static float cgRatio( String dna ) {
         String dnaLow = dna.toLowerCase();
         int cgCount = 0;
