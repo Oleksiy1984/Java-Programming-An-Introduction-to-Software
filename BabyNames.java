@@ -2,27 +2,26 @@
 import edu.duke.DirectoryResource;
 import edu.duke.FileResource;
 import org.apache.commons.csv.CSVRecord;
-
 import java.io.File;
 
+/*
+ * providing data on baby names from the United States and 
+ * you will answer questions about this data. 
+ * The data files give information on the first names of people born 
+ * in a particular year. We have data from 1880 through 2014 on both boys and girls names.
+ */
+ 
 public class BabyNames {
     public static void main(String[] args){
 
         BabyNames miniP = new BabyNames();
 
-//1st Modify the method totalBirths, print out number of girls/boys and total
-       // System.out.println("\n Part 1: printout number of girls/boys, and total" );
-
-       // System.out.println("Q#1: Select year 1900: ");
+// Print out number of girls/boys and total
+       // System.out.println("Printout number of girls and boys" );
        // miniP.totalBirths();
 
-        //System.out.println("Q#2: Select year 1905: ");
-        //miniP.totalBirths();
-
-        //1st Modify the method totalBirths, print out number of girls/boys and total
-        //miniP.totalBirths();
-
-        //2nd method named getRank that has three parameters:
+      
+        // getRank() that has three parameters:
         //an integer named year, a string named name, and a string named gender
         //(F for female and M for male).
         //This method returns the rank of the name in the file for the given gender
@@ -32,7 +31,6 @@ public class BabyNames {
         int rank = miniP.getRank(year, name, gender);
         System.out.println("The name " + name + " ranks " + rank + " at year " + year);
 
-        //5
         /*
         int year = 1980;
         int rank = 350;
@@ -41,42 +39,35 @@ public class BabyNames {
         String rankName = miniP.getName(year, rank, gender);
         System.out.println("The " + gender + " name ranked " + rank + " is: " + rankName +". " );
 
-        //6
+        
         int year = 1982;
         int rank = 450;
         String gender = "M";
         System.out.println("Q#5: Select year " + year +". ");
         String rankName = miniP.getName(year, rank, gender);
         System.out.println("The " + gender + " name ranked " + rank + " is: " + rankName +". " );
-        */
-        //7
-        /*
+        
         int year1 = 1974;
         int year2 = 2014;
         String gender = "M";
         String name = "Owen";
-        System.out.println("Q#7: Select year " + year1 +"; And year " + year2 +". ");
+        System.out.println("Select year " + year1 +"; And year " + year2 +". ");
         miniP.whatIsNameInYear(name, year1, year2, gender);
-        */
-        //9
-        /*
+       
         String name = "Mich";
         String gender = "M";
-        System.out.println("Q#9: select all years:");
+        System.out.println("Select all years:");
         int highestRank = miniP.yearOfHighestRank(name, gender);
         System.out.println("The highest rank for the name " + name + " gender " + gender + " is at year " + highestRank );
 
-    */
-    //11
-        /*
+    
         String name = "Robert";
         String gender = "M";
         System.out.println("Q#11: select all years:");
         double aveRank = miniP.getAverageRank(name, gender);
         System.out.println("The average rank of " + name + " gender " + gender + " is " + aveRank);
-*/
-        //13
-        /*
+
+     
        int year = 1990;
         String name = "Emily";
         String gender = "F";
@@ -86,7 +77,7 @@ public class BabyNames {
         System.out.println("The total " + gender + " births at year " + year + " ranks higher than " + name + " is: " + totalBirthHigher);
 
 
-        System.out.println("Q14: select year 1990: ");
+        System.out.println("Select year 1990: ");
         year = 1990;
         name = "Drew";
         gender = "M";
@@ -98,6 +89,10 @@ public class BabyNames {
 
     }//end of main();
 
+        //method getTotalBirthsRankedHigher that has three parameters: 
+		//an integer named year, a string named name, and a string named gender (F for female and M for male). 
+		//This method returns an integer, the total number of births of those names with the same gender and same year 
+		//who are ranked higher than name
     private static int getTotalBirthsRankedHigher(int year, String name, String gender) {
         // TODO Auto-generated method stub
         FileResource fr = new FileResource();
@@ -117,6 +112,12 @@ public class BabyNames {
 
         return sum;
     }//end getTotalBirthsRankedHigher() method;
+    
+    /* getAverageRank()  
+	 * @param name
+	 * @param gender
+	 * @return
+	 */
     private double getAverageRank(String name, String gender) {
         // TODO Auto-generated method stub
 
@@ -156,7 +157,12 @@ public class BabyNames {
 
     }//end getAverageRank() method;
 
-
+     /**********
+	 * yearOfHighestRank()
+	 * @param name
+	 * @param gender
+	 * @return
+	 */
     private int yearOfHighestRank(String name, String gender) {
         // TODO Auto-generated method stub
 
@@ -208,7 +214,14 @@ public class BabyNames {
         return yearHigh;
     }
 
-
+     /******************
+	 * whatIsNameInYear()
+	 * get the name of the same popularity in another year, give the same gender;
+	 * @param name
+	 * @param year
+	 * @param year2 
+	 * @param gender
+	 */
     private void whatIsNameInYear(String name, int year1, int year2, String gender) {
         // TODO Auto-generated method stub
 
@@ -221,6 +234,14 @@ public class BabyNames {
         System.out.println( name + " born in " + year1 + " would be " + equalName + " if she was born in " + year2);
 
     }//end whatIsNameInYear() method;
+    /***********
+	 * getName();
+	 * given the rank and gender, return a name in a certain file;
+	 * @param year
+	 * @param rank
+	 * @param gender
+	 * @return
+	 */
     private String getName(int year, int rank, String gender) {
         // TODO Auto-generated method stub
 
@@ -243,7 +264,16 @@ public class BabyNames {
         return "NO NMAE";
 
     }//end getName() method;
-
+    
+    
+     /**********
+     * getRank();
+	 * get the rank of a certain name in a file, give the gender;
+	 * @param year
+	 * @param name
+	 * @param gender
+	 * @return
+	 */
     private int getRank(int year, String name, String gender) {
         // TODO Auto-generated method stub
 
@@ -269,10 +299,9 @@ public class BabyNames {
 
     }//end getRank() method;
 
-    //1st Modify the method totalBirths, print out number of girls/boys and total
+    //method totalBirths, print out number of girls/boys
     private void totalBirths() {
-        // TODO Auto-generated method stub
-
+       
         //get the file,
         FileResource fr = new FileResource();
 
@@ -293,4 +322,4 @@ public class BabyNames {
 
 System.out.println(String.format("Girls-%03d, Boys - %03d",numGirl,numBoy));
     }
-}//ee
+}//end
